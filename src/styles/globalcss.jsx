@@ -7,7 +7,7 @@ export const CommonStyles = StyleSheet.create({
     color: '#333',
   },
   button: {
-    backgroundColor: '#007BFF',
+    backgroundColor: '#4cc75c',
     padding: 10,
     borderRadius: 5,
     alignItems: 'center',
@@ -28,6 +28,7 @@ export const CommonStyles = StyleSheet.create({
     fontSize: 24,
     fontWeight: 'bold',
     marginVertical: 10,
+    color:"#222"
   },
   subHeader: {
     fontSize: 18,
