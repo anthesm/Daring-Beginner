@@ -28,7 +28,7 @@ export const CommonStyles = StyleSheet.create({
     fontSize: 24,
     fontWeight: 'bold',
     marginVertical: 10,
-    color:"#222"
+    color: '#222',
   },
   subHeader: {
     fontSize: 18,
