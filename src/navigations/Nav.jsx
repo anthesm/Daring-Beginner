@@ -1,7 +1,7 @@
 import React from 'react';
 import {createDrawerNavigator} from '@react-navigation/drawer';
 import {createStackNavigator} from '@react-navigation/stack';
-import Home from '../components/home/Home';
+import Home from '../usables/ScreenCompo';
 
 const Drawer = createDrawerNavigator();
 const Stack = createStackNavigator();
