@@ -52,7 +52,7 @@ ReusableComponent.defaultProps = {
   onButtonPress: () => {
     console.log('Button Pressed');
   },
-  imageSource: require('../../assets/frontLogo.png'), // Default image
+  imageSource: require('../assets/frontLogo.png'), // Default image
   imageStyle: {},
 };
 
