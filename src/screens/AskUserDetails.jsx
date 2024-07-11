@@ -13,7 +13,7 @@ const AskUserDetails = ({navigation}) => {
           onChangeText={text => setName(text)}
         />
       </View>
-      <Button title="Next" onPress={() => navigation.navigate('home')} />
+      <Button title="Next" onPress={() => navigation.navigate('tab')} />
     </View>
   );
 };
