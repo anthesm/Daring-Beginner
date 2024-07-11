@@ -40,6 +40,7 @@ ReusableComponent.defaultProps = {
   onButtonPress: () => {
     console.log('Button Pressed');
   },
+  
 };
 
 export default ReusableComponent;
