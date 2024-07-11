@@ -16,13 +16,15 @@ const QuizScreen = ({navigation}) => {
   };
 
   const handleNextQuestion = () => {
+  
     if (currentQuestionIndex < questions.length - 1) {
       setCurrentQuestionIndex(currentQuestionIndex + 1);
-    } else {
-      navigation.navigate('ScoreScreen', {
+    } else{
+      navigation.push('scoreScreen', {
         score,
         totalQuestions: questions.length,
-      });
+      }
+    );
     }
   };
 

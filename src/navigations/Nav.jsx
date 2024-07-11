@@ -3,6 +3,8 @@ import {createDrawerNavigator} from '@react-navigation/drawer';
 import {createStackNavigator} from '@react-navigation/stack';
 import Home from '../components/ScreenCompo';
 import InitialScreens from '../screens/InitialScreens';
+import QuizScreen from '../screens/quiz/QuizScreen';
+import ScoreScreen from '../screens/quiz/ScoreScreen';
 
 const Drawer = createDrawerNavigator();
 const Stack = createStackNavigator();
@@ -20,6 +22,9 @@ const Nav = () => {
     <Stack.Navigator screenOptions={{headerShown: false}}>
       <Stack.Screen name="getstart" component={Home} />
       <Stack.Screen name="home" component={InitialScreens} />
+      <Stack.Screen name="quizScreen" component={QuizScreen} />
+      <Stack.Screen name="scoreScreen" component={ScoreScreen} />
+
     </Stack.Navigator>
   );
 };

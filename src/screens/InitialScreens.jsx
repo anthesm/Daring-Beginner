@@ -16,7 +16,7 @@ const InitialScreens = ({navigation}) => {
         Quizzes
       </Text>
       <View style={{flex: 1, gap: 20, padding: 10}}>
-        <Card title="HTML" navigation={navigation} />
+        <Card title="HTML" navigation={navigation}/>
         <Card title="React" navigation={navigation} />
         <Card title="CSS" navigation={navigation} />
         <Card title="JavaScript" navigation={navigation} />
