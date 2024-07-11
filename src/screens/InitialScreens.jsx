@@ -4,7 +4,7 @@ import Card from '../components/Card';
 import {ScrollView} from 'react-native-gesture-handler';
 const InitialScreens = ({navigation}) => {
   return (
-    <ScrollView>
+    <ScrollView style={{marginTop:10}}>
       <Text
         style={{
           fontSize: 22,

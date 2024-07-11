@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {ScrollView, StyleSheet, Button} from 'react-native';
+import {ScrollView, StyleSheet, Button, View, Text, TouchableOpacity, Modal } from 'react-native';
 import Quiz from './Quiz';
 import {quizQuestions} from '../../json/quizQuestions';
 import {CommonStyles} from '../../styles/globalcss';
@@ -20,16 +20,25 @@ const QuizScreen = ({navigation}) => {
     if (currentQuestionIndex < questions.length - 1) {
       setCurrentQuestionIndex(currentQuestionIndex + 1);
     } else{
-      navigation.push('scoreScreen', {
+      navigation.navigate('scoreScreen', {
         score,
         totalQuestions: questions.length,
       }
     );
     }
   };
+const resetAll = ()=>{
+  setCurrentQuestionIndex(0)
+  navigation.navigate('home')
+}
 
   return (
     <ScrollView contentContainerStyle={styles.container}>
+      <View>
+        <TouchableOpacity onPress={resetAll}>
+          <Text>close</Text>
+        </TouchableOpacity>
+      </View>
       <Quiz
         question={questions[currentQuestionIndex].question}
         options={questions[currentQuestionIndex].options}
