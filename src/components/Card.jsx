@@ -1,11 +1,11 @@
 import React from 'react';
-import {View, Text} from 'react-native';
+import { View, Text } from 'react-native';
 import Button from './Button';
-import {CommonStyles} from '../styles/globalcss';
-import {CARD_DESC_TEXT} from '../constants/text';
-import styles from '../styles/cardCss'; // Import the styles from cardCss.js
+import { CommonStyles } from '../styles/globalcss';
+import { CARD_DESC_TEXT } from '../constants/text';
+import styles from '../styles/cardCss';
 
-const Card = ({title, navigation}) => (
+const Card = ({ title, navigation }) => (
   <View style={[CommonStyles.card, styles.cardContainer]}>
     <Text style={[CommonStyles.header, styles.cardTitle]}>{title}</Text>
     <Text style={[CommonStyles.text, styles.cardText]}>{CARD_DESC_TEXT}</Text>

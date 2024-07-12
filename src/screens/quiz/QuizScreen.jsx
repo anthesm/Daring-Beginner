@@ -1,11 +1,18 @@
-import React, {useState} from 'react';
-import {ScrollView, StyleSheet, Button} from 'react-native';
+import React, { useState } from 'react';
+import {
+  ScrollView,
+  StyleSheet,
+  View,
+  Text,
+  TouchableOpacity,
+  Button,
+} from 'react-native';
 import Quiz from './Quiz';
-import {quizQuestions} from '../../json/quizQuestions';
-import {CommonStyles} from '../../styles/globalcss';
+import { HTML } from '../../json/HTML';
+import { CommonStyles } from '../../styles/globalcss';
 
-const QuizScreen = ({navigation}) => {
-  const questions = quizQuestions.b.questions;
+const QuizScreen = ({ navigation }) => {
+  const questions = HTML.b.questions;
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [score, setScore] = useState(0);
 
@@ -16,20 +23,28 @@ const QuizScreen = ({navigation}) => {
   };
 
   const handleNextQuestion = () => {
-  
     if (currentQuestionIndex < questions.length - 1) {
       setCurrentQuestionIndex(currentQuestionIndex + 1);
-    } else{
-      navigation.push('score', {
+    } else {
+      navigation.navigate('score', {
         score,
         totalQuestions: questions.length,
-      }
-    );
+      });
     }
+  };
+
+  const resetAll = () => {
+    setCurrentQuestionIndex(0);
+    navigation.navigate('home');
   };
 
   return (
     <ScrollView contentContainerStyle={styles.container}>
+      <View>
+        <TouchableOpacity onPress={resetAll}>
+          <Text>Close</Text>
+        </TouchableOpacity>
+      </View>
       <Quiz
         question={questions[currentQuestionIndex].question}
         options={questions[currentQuestionIndex].options}
