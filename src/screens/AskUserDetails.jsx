@@ -7,12 +7,14 @@ const AskUserDetails = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
-      <View>
-        <Text style={styles.heading}>What we call you?</Text>
+      <View style={styles.content}>
+        <Text style={styles.heading}>What should we call you?</Text>
         <TextInput
           style={styles.input}
           value={name}
-          onChangeText={text => setName(text)}
+          onChangeText={setName}
+          placeholder="Enter your name"
+          placeholderTextColor="#aaa"
         />
       </View>
       <Button title="Next" onPress={() => navigation.navigate('Draw')} />
@@ -21,23 +23,35 @@ const AskUserDetails = ({ navigation }) => {
 };
 
 const styles = StyleSheet.create({
-  input: {
-    borderWidth: 1,
-    borderColor: '#252525',
-    borderRadius: 30,
-    marginVertical: 20,
-    padding: 10,
-  },
   container: {
     flex: 1,
     justifyContent: 'space-between',
     padding: 20,
+    backgroundColor: '#f0f4f7',
+  },
+  content: {
+    flex: 1,
+    justifyContent: 'center',
   },
   heading: {
-    fontSize: 25,
+    fontSize: 28,
     fontWeight: 'bold',
-    color: '#252525',
+    color: '#333',
     textAlign: 'center',
+    marginBottom: 20,
+  },
+  input: {
+    borderWidth: 1,
+    borderColor: '#ccc',
+    borderRadius: 10,
+    padding: 15,
+    fontSize: 18,
+    backgroundColor: '#fff',
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 5,
+    elevation: 3,
   },
 });
 

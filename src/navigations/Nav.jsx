@@ -13,7 +13,7 @@ const Stack = createStackNavigator();
 
 const Draw = () => {
   return (
-    <Tab.Navigator>
+    <Tab.Navigator screenOptions={{headerShown: false}}>
       <Tab.Screen name="Home" component={InitialScreens} />
       <Tab.Screen name="Profile" component={Profile} />
     </Tab.Navigator>
