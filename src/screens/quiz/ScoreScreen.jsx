@@ -6,8 +6,10 @@ const ScoreScreen = ({route, navigation}) => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.scoreText}>Your Score: {score} / {totalQuestions}</Text>
-      <Button title="Play Again" onPress={() => navigation.navigate('QuizScreen')} />
+      <Text style={styles.scoreText}>
+        Your Score: {score} / {totalQuestions}
+      </Text>
+      <Button title="Play Again" onPress={() => navigation.navigate('quiz')} />
     </View>
   );
 };
@@ -23,7 +25,7 @@ const styles = StyleSheet.create({
   scoreText: {
     fontSize: 24,
     marginBottom: 20,
-    color:"#222"
+    color: '#222',
   },
 });
 

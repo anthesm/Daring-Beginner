@@ -20,7 +20,7 @@ const QuizScreen = ({navigation}) => {
     if (currentQuestionIndex < questions.length - 1) {
       setCurrentQuestionIndex(currentQuestionIndex + 1);
     } else{
-      navigation.push('scoreScreen', {
+      navigation.push('score', {
         score,
         totalQuestions: questions.length,
       }

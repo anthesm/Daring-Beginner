@@ -1,6 +1,5 @@
 import {StyleSheet} from 'react-native';
 
-// Common styles used across the application
 export const CommonStyles = StyleSheet.create({
   text: {
     fontSize: 20,
@@ -37,7 +36,6 @@ export const CommonStyles = StyleSheet.create({
   },
 });
 
-// Global styles for the entire application
 export const GlobalStyles = StyleSheet.create({
   container: {
     flex: 1,
