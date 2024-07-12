@@ -9,10 +9,11 @@ import {
 } from 'react-native';
 import Quiz from './Quiz';
 import { HTML } from '../../json/HTML';
+import { REACT } from '../../json/REACT';
 import { CommonStyles } from '../../styles/globalcss';
 
 const QuizScreen = ({ navigation }) => {
-  const questions = HTML.b.questions;
+  const questions = HTML.basic.questions;
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [score, setScore] = useState(0);
 
