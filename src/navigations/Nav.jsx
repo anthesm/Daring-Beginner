@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {createStackNavigator} from '@react-navigation/stack';
-import Home from '../components/ScreenCompo';
 import InitialScreens from '../screens/InitialScreens';
 import QuizScreen from '../screens/quiz/QuizScreen';
 import ScoreScreen from '../screens/quiz/ScoreScreen';
@@ -9,14 +8,14 @@ import AskUserDetails from '../screens/AskUserDetails';
 import Profile from '../screens/Profile';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import OpeningScreen from '../screens/OpeningScreen';
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
 
 const screenoptions = ({route}) => ({
-  tabBarIcon: ({focused, color, size}) => {
+  tabBarIcon: () => {
     let iconName;
-
     if (route.name === 'home') {
       iconName = 'home';
     } else if (route.name === 'profile') {
@@ -62,12 +61,12 @@ const Nav = () => {
       {name !== '' ? (
         <Stack.Screen name="tab" component={BottomTab} />
       ) : (
-        <Stack.Screen name="userDetails" component={AskUserDetails} />
+        <Stack.Screen name="openingScreen" component={OpeningScreen} />
       )}
+      <Stack.Screen name="userDetails" component={AskUserDetails} />
       <Stack.Screen name="quizScreen" component={QuizScreen} />
       <Stack.Screen name="scoreScreen" component={ScoreScreen} />
     </Stack.Navigator>
   );
 };
-
 export default Nav;

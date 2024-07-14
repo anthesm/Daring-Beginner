@@ -1,33 +1,20 @@
-import {View, Text, StyleSheet} from 'react-native';
 import React from 'react';
+import { View, Text } from 'react-native';
 import Button from './Button';
-const Card = ({title, navigation }) => {
-  return (
-    <View style={styles.card}>
-      <Text style={styles.heading}>{title}</Text>
-      <Text style={styles.desc}>play and increase the knowledge</Text>
-      <Button title="Play" onPress={() => navigation.navigate('quizScreen')} />
-    </View>
-  );
-};
+import { CommonStyles } from '../styles/globalcss';
+import { CARD_DESC_TEXT } from '../constants/text';
+import styles from '../styles/cardCss';
 
-const styles = StyleSheet.create({
-  card: {
-    backgroundColor: '#252525',
-    padding: 15,
-    gap:10,
-    elevation:5,
-    borderRadius:10,
-  },
-  heading: {
-    fontSize: 20,
-    color: '#fff',
-    fontWeight: 'bold',
-  },
-  desc: {
-    color: '#fff',
-    fontSize: 18,
-  },
-});
+const Card = ({ title, navigation }) => (
+  <View style={[CommonStyles.card, styles.cardContainer]}>
+    <Text style={[CommonStyles.header, styles.cardTitle]}>{title}</Text>
+    <Text style={[CommonStyles.text, styles.cardText]}>{CARD_DESC_TEXT}</Text>
+    <Button
+      title="Play"
+      onPress={() => navigation.navigate('quiz')}
+      style={styles.cardButton}
+    />
+  </View>
+);
 
 export default Card;

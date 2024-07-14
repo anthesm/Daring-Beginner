@@ -1,6 +1,6 @@
-export const quizQuestions = {
-  "b": {
-    "questions": [
+export const HTML = {
+  basic: {
+    questions: [
       {
         id: 1,
         question: 'What does HTML stand for?',
@@ -99,6 +99,6 @@ export const quizQuestions = {
       },
     ],
   },
-  a: {}, // Add questions for category 'a' here if needed
-  i: {}, // Add questions for category 'i' here if needed
+  intermidiate: {},
+  advance: {},
 };

@@ -1,8 +1,8 @@
 import React from 'react';
-import {View, Text, Button, StyleSheet} from 'react-native';
+import { View, Text, Button, StyleSheet } from 'react-native';
 
-const ScoreScreen = ({route, navigation,}) => {
-  const {score, totalQuestions} = route.params;
+const ScoreScreen = ({ route, navigation }) => {
+  const { score, totalQuestions } = route.params;
 
   return (
     <View style={styles.container}>
@@ -10,12 +10,6 @@ const ScoreScreen = ({route, navigation,}) => {
         Your Score: {score} / {totalQuestions}
       </Text>
       <View style={styles.btnContainer}>
-        {/* <Button
-          title="Play Again"
-          onPress={() => {
-            navigation.navigate('quizScreen')
-          }}
-        /> */}
         <Button title="Home" onPress={() => navigation.navigate('home')} />
       </View>
     </View>
@@ -37,8 +31,7 @@ const styles = StyleSheet.create({
     color: '#222',
   },
   btnContainer: {
-    gap:10,
-    flexDirection:'row',
+    marginTop: 20,
   },
 });
 

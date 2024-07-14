@@ -14,8 +14,8 @@ import {CommonStyles} from '../../styles/globalcss';
 import Icon from 'react-native-vector-icons/Entypo';
 import {reactQuestions} from '../../json/React/reactQuestions'
 
-const QuizScreen = ({navigation}) => {
-  const questions = quizQuestions.b.questions;
+const QuizScreen = ({ navigation }) => {
+  const questions = HTML.basic.questions;
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [score, setScore] = useState(0);
 
