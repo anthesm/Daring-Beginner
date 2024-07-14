@@ -9,13 +9,21 @@ import {
   Modal,
 } from 'react-native';
 import Quiz from './Quiz';
-import {quizQuestions} from '../../json/quizQuestions';
+import {HTML} from '../../json/HTML/HTML';
 import {CommonStyles} from '../../styles/globalcss';
 import Icon from 'react-native-vector-icons/Entypo';
-import {reactQuestions} from '../../json/React/reactQuestions'
+import {REACT} from '../../json/React/REACT'
 
-const QuizScreen = ({ navigation }) => {
-  const questions = HTML.basic.questions;
+const QuizScreen = ({ navigation, route }) => {
+  let questionsTopic; 
+  
+  if(route.params.question === 'react'){ questionsTopic = REACT}
+  else if(route.params.question === 'html') {questionsTopic = HTML }
+  else if(route.params.question === 'css') {questionsTopic = HTML }
+  else if(route.params.question === 'js') {questionsTopic = HTML }
+   
+
+  const questions = questionsTopic.basic.questions;
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [score, setScore] = useState(0);
 

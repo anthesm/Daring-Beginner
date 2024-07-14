@@ -58,12 +58,14 @@ const Nav = () => {
     <Stack.Navigator
       initialRouteName="userDetails"
       screenOptions={{headerShown: false}}>
-      {name !== '' ? (
+      {name !== null ? (
         <Stack.Screen name="tab" component={BottomTab} />
       ) : (
-        <Stack.Screen name="openingScreen" component={OpeningScreen} />
+        <>
+          <Stack.Screen name="openingScreen" component={OpeningScreen} />
+          <Stack.Screen name="userDetails" component={AskUserDetails} />
+        </>
       )}
-      <Stack.Screen name="userDetails" component={AskUserDetails} />
       <Stack.Screen name="quizScreen" component={QuizScreen} />
       <Stack.Screen name="scoreScreen" component={ScoreScreen} />
     </Stack.Navigator>

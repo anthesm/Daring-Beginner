@@ -32,7 +32,6 @@ const AskUserDetails = ({navigation}) => {
           saveName(name);
         }}
       />
-      <Button title="Next" onPress={() => navigation.navigate('Draw')} />
     </View>
   );
 };

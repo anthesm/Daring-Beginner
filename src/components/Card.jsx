@@ -11,7 +11,7 @@ const Card = ({ title, navigation }) => (
     <Text style={[CommonStyles.text, styles.cardText]}>{CARD_DESC_TEXT}</Text>
     <Button
       title="Play"
-      onPress={() => navigation.navigate('quiz')}
+      onPress={() => navigation.navigate('quizScreen',{question:title.toLowerCase()})}
       style={styles.cardButton}
     />
   </View>
