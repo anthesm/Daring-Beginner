@@ -1,8 +1,26 @@
 import {View, Text, StyleSheet} from 'react-native';
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
 
 const Profile = () => {
+  const [name, setName] = useState('');
+
+  useEffect(()=>{
+    const getName = async () => {
+      try {
+        const value = await AsyncStorage.getItem('name');
+        if (value !== null) {
+          setName(value);
+        }
+      } catch (e) {
+        console.warn(e);
+      }
+    };
+    getName()
+  },[])
+
   return (
     <View style={{flex: 1}}>
       <View style={styles.uperSection}>
@@ -11,8 +29,8 @@ const Profile = () => {
         </Text>
       </View>
       <View style={styles.lowerSection}>
-        <Text style={styles.heading}>Name:{}</Text>
-        <Text style={styles.heading}>Email:{}</Text>
+        <Text style={styles.heading}>Name: {name}</Text>
+        <Text style={styles.heading}>Email:{"N/A"}</Text>
       </View>
     </View>
   );

@@ -1,8 +1,18 @@
 import {View, Text, TextInput, StyleSheet} from 'react-native';
 import React, {useState} from 'react';
 import Button from '../components/Button';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
 const AskUserDetails = ({navigation}) => {
   const [name, setName] = useState('');
+  const saveName = async value => {
+    try {
+      await AsyncStorage.setItem('name', value);
+    } catch (e) {
+      console.warn(e);
+    }
+  };
+
   return (
     <View style={styles.container}>
       <View>
@@ -13,7 +23,13 @@ const AskUserDetails = ({navigation}) => {
           onChangeText={text => setName(text)}
         />
       </View>
-      <Button title="Next" onPress={() => navigation.navigate('tab')} />
+      <Button
+        title="Next"
+        onPress={() => {
+          navigation.navigate('tab');
+          saveName(name);
+        }}
+      />
     </View>
   );
 };
@@ -31,7 +47,12 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     padding: 20,
   },
-  heading: {fontSize: 25, fontWeight: 'bold', color: '#252525',textAlign:'center'},
+  heading: {
+    fontSize: 25,
+    fontWeight: 'bold',
+    color: '#252525',
+    textAlign: 'center',
+  },
 });
 
 export default AskUserDetails;

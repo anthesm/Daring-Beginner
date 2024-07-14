@@ -1,8 +1,18 @@
 import React, {useState} from 'react';
-import {ScrollView, StyleSheet, Button, View, Text, TouchableOpacity, Modal } from 'react-native';
+import {
+  ScrollView,
+  StyleSheet,
+  Button,
+  View,
+  Text,
+  TouchableOpacity,
+  Modal,
+} from 'react-native';
 import Quiz from './Quiz';
 import {quizQuestions} from '../../json/quizQuestions';
 import {CommonStyles} from '../../styles/globalcss';
+import Icon from 'react-native-vector-icons/Entypo';
+import {reactQuestions} from '../../json/React/reactQuestions'
 
 const QuizScreen = ({navigation}) => {
   const questions = quizQuestions.b.questions;
@@ -16,27 +26,28 @@ const QuizScreen = ({navigation}) => {
   };
 
   const handleNextQuestion = () => {
-  
     if (currentQuestionIndex < questions.length - 1) {
       setCurrentQuestionIndex(currentQuestionIndex + 1);
-    } else{
+    } else {
       navigation.navigate('scoreScreen', {
         score,
         totalQuestions: questions.length,
-      }
-    );
+      });
     }
   };
-const resetAll = ()=>{
-  setCurrentQuestionIndex(0)
-  navigation.navigate('home')
-}
+
+  const resetAll = () => {
+    setCurrentQuestionIndex(0);
+    navigation.navigate('home');
+  };
 
   return (
     <ScrollView contentContainerStyle={styles.container}>
       <View>
         <TouchableOpacity onPress={resetAll}>
-          <Text>close</Text>
+          <Text>
+            <Icon name="cross" size={30} />
+          </Text>
         </TouchableOpacity>
       </View>
       <Quiz
