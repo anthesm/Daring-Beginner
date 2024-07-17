@@ -26,7 +26,7 @@ const QuizScreen = ({navigation, route}) => {
     questionsTopic = HTML;
   } else if (route.params.question === 'css') {
     questionsTopic = CSS;
-  } else if (route.params.question === 'js') {
+  } else if (route.params.question === 'javascript') {
     questionsTopic = JAVASCRIPT;
   }
 
