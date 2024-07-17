@@ -38,7 +38,7 @@ const BottomTab = () => {
 };
 
 const Nav = () => {
-  const [name, setName] = useState('');
+  const [name, setName] = useState(null);
 
   useEffect(() => {
     const getName = async () => {
