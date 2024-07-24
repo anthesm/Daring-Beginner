@@ -9,11 +9,12 @@ import Profile from '../screens/Profile';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import OpeningScreen from '../screens/OpeningScreen';
+import Spinner from '../components/Spinner';
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
 
-const screenoptions = ({route}) => ({
+const screenOptions = ({route}) => ({
   tabBarIcon: () => {
     let iconName;
     if (route.name === 'home') {
@@ -30,7 +31,7 @@ const screenoptions = ({route}) => ({
 
 const BottomTab = () => {
   return (
-    <Tab.Navigator screenOptions={screenoptions}>
+    <Tab.Navigator screenOptions={screenOptions}>
       <Tab.Screen name="home" component={InitialScreens} />
       <Tab.Screen name="profile" component={Profile} />
     </Tab.Navigator>
@@ -39,6 +40,7 @@ const BottomTab = () => {
 
 const Nav = () => {
   const [name, setName] = useState(null);
+  const [isLoading, setLoading] = useState(true);
 
   useEffect(() => {
     const getName = async () => {
@@ -46,26 +48,34 @@ const Nav = () => {
         const value = await AsyncStorage.getItem('name');
         if (value !== null) {
           setName(value);
+          setLoading(false);
         }
       } catch (e) {
         console.warn(e);
+      } finally {
+        setLoading(false);
       }
     };
     getName();
   }, []);
 
+  if (isLoading) {
+    return <Spinner />;
+  }
+
   return (
     <Stack.Navigator
       initialRouteName="userDetails"
       screenOptions={{headerShown: false}}>
-      {name !== null ? (
-        <Stack.Screen name="tab" component={BottomTab} />
-      ) : (
+      {name === null ? (
         <>
           <Stack.Screen name="openingScreen" component={OpeningScreen} />
           <Stack.Screen name="userDetails" component={AskUserDetails} />
         </>
+      ) : (
+        <Stack.Screen name="root" component={BottomTab} />
       )}
+      <Stack.Screen name="tab" component={BottomTab} />
       <Stack.Screen name="quizScreen" component={QuizScreen} />
       <Stack.Screen name="scoreScreen" component={ScoreScreen} />
     </Stack.Navigator>
